@@ -368,3 +368,5 @@ player addEventHandler ["InventoryOpened",
 	if (((_this select 1) isKindOf "man") && (({typeOf _x == "GroundWeaponHolder"} count ((_this select 1) nearSupplies 3)) != 0)) exitWith {if (player getVariable ["InvOpened",0] != 1) then {_this spawn aa_fnc_invInterupt}};
 	[0, _this select 1, _this select 2] spawn aa_fnc_gearInterupt; true
 }];
+player addEventHandler ["GetInMan", {detach wpnHolderLeft; wpnHolderLeft setPosASL [0,0,0];}];
+player addEventHandler ["GetOutMan", {wpnHolderLeft attachTo [player,[0.05,-0.03,-0.03],"launcher"];}];
